@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
     Button,
     Container,
@@ -12,7 +13,6 @@ import {
     Tr,
 } from "@yakad/ui";
 import DeleteButton from "../../../(components)/DeleteButton";
-import Link from "next/link";
 import { controllerAyah } from "../../../connnection";
 
 export default async function Page({
@@ -22,7 +22,8 @@ export default async function Page({
     params: { uuid: string };
     searchParams: { surah_uuid: string };
 }) {
-    const ayah = (await controllerAyah.view(params.uuid, {})).data;
+    const ayah = (await controllerAyah.view(params.uuid)).data;
+
     return (
         <Container size="xl">
             <Row>
